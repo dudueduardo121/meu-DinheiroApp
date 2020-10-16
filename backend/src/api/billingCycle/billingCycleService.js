@@ -1,9 +1,15 @@
 const BillingCycle = require('./billingCycle')
+const errorHandler = require('../common/errorHandler')
 
 //methods
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 // Sempre que o objeto for alterado retorna o objeto atualizado
 BillingCycle.updateOptions({new: true, runValidators: true})
+
+// aplicar o tratamento de erro
+BillingCycle.after('post', errorHandler).after('put', errorHandler)
+
+
 
 BillingCycle.route('get', (req, res, next) => {
     BillingCycle.find({}, (err, value) => {
