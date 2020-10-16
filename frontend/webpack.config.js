@@ -30,11 +30,11 @@ module.exports = {
     module: {
         loaders:[{
             test: /.js[x]?$/,
-            loader: 'babel_modules',
-            exclude: /node-modules/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
             query: {
                 presets: ['es2015', 'react'],
-                plugins: ['transform-objet-rest-spread']
+                plugins: ['transform-object-rest-spread']
             }
         }, {
             test: /\.css$/,
