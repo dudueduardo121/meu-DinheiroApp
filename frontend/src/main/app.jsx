@@ -3,6 +3,7 @@ import '../common/template/dependencies'
 import Header from '../common/template/header'
 import Sidebar from '../common/template/sidebar'
 import Footer from '../common/template/footer'
+import Routes from './routes'
 
 export default props => {
   return (
@@ -10,7 +11,7 @@ export default props => {
        <Header/>
        <Sidebar/>
        <div className='content-wrapper'>
-            <h2>Conteudo</h2>
+          <Routes/>
        </div>
        <Footer/>
     </div>
