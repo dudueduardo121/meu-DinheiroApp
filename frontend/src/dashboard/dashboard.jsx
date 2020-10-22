@@ -13,6 +13,7 @@ class Dashboard extends Component {
   componentWillMount(){
     this.props.getSummary()
   }
+  
   render() {
     const {credit, debt} = this.props.summary
     return(
