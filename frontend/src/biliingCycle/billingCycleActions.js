@@ -15,20 +15,36 @@ export function getList() {
     }
 }
 
-export function create(values) {
+function submit(values, method) {
     return dispatch => {
-        axios.post(`${BASE_URL}/billingCycles`, values)
-        .then(resp => {
-            toastr.success('Sucesso', 'Operação realizada com sucesso.')
-            dispatch(init())
-        })
-        .catch(e => {
-            e.response.data.errors.forEach(error => toastr.error('Error', error))
-        })
+
+        const id = values._id ? values._id : ''
+
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
+            .then(resp => {
+                toastr.success('Sucesso', 'Operação realizada com sucesso.')
+                dispatch(init())
+            })
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Error', error))
+            })
     }
+}
+
+// criar novo clico de pagamento
+export function create(values) {
+    return submit(values, 'post')
 
 }
 
+// Atualizar ciclo de pagamentos 
+export function update(values) {
+    return submit(values, 'put')
+}
+
+
+
+// iniciliazar ciclo de pagamentos com valor inicial definido
 export function showUpdate(billingClycle) {
     return [
         showTabs('tabUpdate'),
