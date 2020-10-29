@@ -3,8 +3,11 @@
     bottom: 0px;
     width: 100%;
 }
-.billi{
-    padding: 20px;
-    font-size: 20px;
-    color: #333;
+
+button {
+    margin-left: 5px;
+}
+
+.table-actions {
+    width: 150px;
 }
