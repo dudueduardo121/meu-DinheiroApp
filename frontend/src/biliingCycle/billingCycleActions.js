@@ -31,20 +31,31 @@ function submit(values, method) {
     }
 }
 
-// criar novo clico de pagamento
+// criar 
 export function create(values) {
     return submit(values, 'post')
 
 }
 
-// Atualizar ciclo de pagamentos 
+// Atualizar 
 export function update(values) {
     return submit(values, 'put')
 }
 
-
+// Excluir 
+export function remove(values) {
+    return submit(values, 'delete')
+}
 
 // iniciliazar ciclo de pagamentos com valor inicial definido
+export function showDelete(billingClycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('billingCycleForm', billingClycle)
+    ]
+}
+
 export function showUpdate(billingClycle) {
     return [
         showTabs('tabUpdate'),
